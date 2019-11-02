@@ -1,0 +1,4 @@
+name: batch-printing
+recipe: laravel
+config:
+  webroot: public
