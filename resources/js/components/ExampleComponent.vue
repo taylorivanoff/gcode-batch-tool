@@ -1,8 +1,21 @@
 <template>
   <div>
 
-    <h1>Batch printing tool</h1>
+    <h1>G-code batch printing tool</h1>
+    <a href="https://www.reddit.com/r/3Dprinting/comments/cxd5fl/creating_an_automated_batch_print_farm/">Reddit: Creating an automated batch print farm</a>
     <br>
+    <a href="https://github.com/taylorivanoff/gcode-batch-tool">GitHub Repository</a>
+
+    <br>
+    <br>
+
+    <p>Simply, this tool stitches together gcode and repeats it X number of times.</p>
+    <p>This is particuraly useful for when you want to 3D print something over and over again.</p>
+    <p>The gcode included below is what works for my particular setup, but because everyone's 3D printing setup is different, you will want to customise the gcode below to work for you.</p>
+    <strong>Make sure the gcode you upload contains no start or end gcode already.</strong>
+    <br>
+    <br>
+
     <el-form ref="form" :model="form" label-width="120px">
 
       <el-form-item label="No. of Repeats">
@@ -44,7 +57,6 @@
 
 
       <el-form-item>
-        <p>Ensure uploaded gcode contains no start or end code already</p>
          <el-upload
           class="upload-demo"
           drag
