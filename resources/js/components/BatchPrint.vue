@@ -58,7 +58,7 @@
          <el-upload
           class="upload-demo"
           drag
-          action="api/posts/file"
+          action="api/batch/file"
           :file-list="fileList"
           :on-success="onSuccess"
           :limit="1"
