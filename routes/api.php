@@ -13,13 +13,8 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('posts/search', function (Request $request) {
-    return App\Post::where('name', 'LIKE', '%' . $request->query('search') . '%')
-    	->get();
-});
-
-Route::apiResource('posts', 'PostController');
-Route::post('posts/file', 'PostController@file');
+Route::apiResource('batch', 'BatchController');
+Route::post('batch/file', 'BatchController@file');
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

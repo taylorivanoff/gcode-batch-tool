@@ -1,20 +1,20 @@
 <template>
   <div>
 
-    <h1>G-code batch printing tool</h1>
-    <a href="https://www.reddit.com/r/3Dprinting/comments/cxd5fl/creating_an_automated_batch_print_farm/">Reddit: Creating an automated batch print farm</a>
-    <br>
-    <a href="https://github.com/taylorivanoff/gcode-batch-tool">GitHub Repository</a>
+    <div class="text">
+      <h1>G-code batch printing tool</h1>
 
-    <br>
-    <br>
+      <div class="text">
+        <a href="https://www.reddit.com/r/3Dprinting/comments/cxd5fl/creating_an_automated_batch_print_farm/">Reddit: Creating an automated batch print farm</a>
+        <br>
+        <a href="https://github.com/taylorivanoff/gcode-batch-tool">GitHub Repository</a>
+      </div>
 
-    <p>Simply, this tool stitches together gcode and repeats it X number of times.</p>
-    <p>This is particuraly useful for when you want to 3D print something over and over again.</p>
-    <p>The gcode included below is what works for my particular setup, but because everyone's 3D printing setup is different, you will want to customise the gcode below to work for you.</p>
-    <strong>Make sure the gcode you upload contains no start or end gcode already.</strong>
-    <br>
-    <br>
+      <p>Simply, this tool stitches together gcode and repeats it X number of times.</p>
+      <p>This is particuraly useful for when you want to 3D print something over and over again.</p>
+      <p>The gcode included below is what works for my particular setup, but because everyone's 3D printing setup is different, you will want to customise the gcode below to work for you.</p>
+      <strong>Make sure the gcode you upload contains no start or end gcode already.</strong>
+    </div>
 
     <el-form ref="form" :model="form" label-width="120px">
 
@@ -53,8 +53,6 @@
           v-model="form.end">
         </el-input>
       </el-form-item>
-      
-
 
       <el-form-item>
          <el-upload
@@ -76,9 +74,15 @@
       </el-form-item>
 
     </el-form>
-   
   </div>
 </template>
+
+<style scoped>
+  .text {
+    padding: 2rem 0;
+  }
+</style>
+
 <script>
   export default {
     data() {
@@ -130,7 +134,7 @@ M84 ; disable motors',
         this.form.file = response
       },
       onSubmit() {
-        axios.post('posts', {
+        axios.post('batch', {
             form: this.form,
         },
         {
